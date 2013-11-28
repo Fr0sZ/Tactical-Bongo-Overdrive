@@ -1,0 +1,19 @@
+ConstVarName
+
+m_varName
+
+
+private FunctionName(string exampleString)
+{
+	varName = ads;
+
+	for(int i;i < 100;i++)
+
+	
+}
+
+´
+enum Name
+{
+asd
+}
