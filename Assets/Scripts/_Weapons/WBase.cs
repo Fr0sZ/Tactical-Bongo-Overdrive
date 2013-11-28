@@ -3,13 +3,7 @@ using System.Collections;
 
 public class WBase : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+	private abstract void Start();
+	private abstract void Update();
+	public abstract void Fire();
 }
