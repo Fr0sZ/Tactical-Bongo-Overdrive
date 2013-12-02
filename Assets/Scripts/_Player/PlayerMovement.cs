@@ -20,11 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
 	void Update()
 	{
-		//m_currentDir = new Vector2(Input.GetAxis("Horizontal"),0);
-
-		float jumpRayRange = 0.01f;
-
-		m_grounded = Physics2D.Raycast(new Vector2(transform.position.x,transform.position.y)  - new Vector2(0, GetComponent<BoxCollider2D>().size.y/2 + 0.01f) , -Vector2.up, jumpRayRange);
+		m_grounded = IsGrounded();
 
 		Vector2 velocityToAdd = Vector2.zero;
 
@@ -82,6 +78,20 @@ public class PlayerMovement : MonoBehaviour
 		{
 			rigidbody2D.AddForce(new Vector2(0, m_jumpForce));
 		}
+	}
+
+	bool IsGrounded()
+	{
+		float jumpRayRange = 0.01f;
+
+		Vector2 collSize = GetComponent<BoxCollider2D>().size;
+
+		if(Physics2D.Raycast(new Vector2(transform.position.x,transform.position.y)  - new Vector2(0, collSize.y/2 + 0.01f) , -Vector2.up, jumpRayRange) ||
+		   Physics2D.Raycast(new Vector2(transform.position.x,transform.position.y)  - new Vector2(collSize.x/2, collSize.y/2 + 0.01f) , -Vector2.up, jumpRayRange) ||
+		   Physics2D.Raycast(new Vector2(transform.position.x,transform.position.y)  - new Vector2(-collSize.x/2, collSize.y/2 + 0.01f) , -Vector2.up, jumpRayRange))
+			return true;
+
+		return false;
 	}
 
 	void OnGUI()
