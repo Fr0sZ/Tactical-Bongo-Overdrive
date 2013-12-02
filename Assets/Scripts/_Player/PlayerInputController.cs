@@ -1,8 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+
+[System.Serializable]
+public class Controls	//It need to be a class becuse structs aren't serializable
+{
+	public KeyCode Up;
+	public KeyCode Down;
+	public KeyCode Left;
+	public KeyCode Right;
+	public KeyCode Jump;
+	public KeyCode Attack;
+}
 
 public class PlayerInputController : MonoBehaviour 
 {	
+	public int m_player = 1;
+	public List<Controls> m_playerControls = new List<Controls>();
+
 	private PlayerMovement m_playerMovement;
 
 	void Start()
@@ -11,11 +26,18 @@ public class PlayerInputController : MonoBehaviour
 	}
 
 	// Update is called once per frame
-	void Update () 
+	void Update ()
 	{
-		m_playerMovement.SetPlayerDir(new Vector2(Input.GetAxis("Horizontal"),0));
+		float dir = 0;
 
-		if(Input.GetButtonDown("Jump"))
+		if(Input.GetKey(m_playerControls[m_player-1].Left))
+			dir--;
+		if(Input.GetKey(m_playerControls[m_player-1].Right))
+			dir++;
+
+		m_playerMovement.SetPlayerDir(new Vector2(dir,0));
+
+		if(Input.GetKeyDown(m_playerControls[m_player-1].Jump))
 		{
 			m_playerMovement.TryToJump();
 		}
