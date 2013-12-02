@@ -68,9 +68,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a8928044d9fe074ca7f4225e8187f57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_movementSpeed: 8
+  m_groundSpeed: 8
+  m_airSpeed: 7
   m_jumpForce: 750
-  m_speedSlowdown: .600000024
+  m_groundSlowdown: .600000024
+  m_airSlowdown: .600000024
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
