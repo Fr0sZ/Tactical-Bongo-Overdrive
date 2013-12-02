@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
 		{
 			rigidbody2D.velocity += new Vector2(0,Physics2D.gravity.y) * Time.deltaTime * rigidbody2D.gravityScale;
 		}
-		else if(rigidbody2D.velocity.y < 0)
+		else if(rigidbody2D.velocity.y < 0)	//Make sure so the player doesen't go through the ground
 		{
 			rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0);
 		}
@@ -45,22 +45,28 @@ public class PlayerMovement : MonoBehaviour
 
 		rigidbody2D.velocity = new Vector2(m_velocity.x, rigidbody2D.velocity.y);
 
+
+
+		//Make sure so the player dosen't go through things
 		Vector2 collSize = GetComponent<BoxCollider2D>().size;
 
-		RaycastHit2D hit 		= Physics2D.Raycast(new Vector2(transform.position.x,transform.position.y)  + Mathf.Sign(rigidbody2D.velocity.x) * new Vector2(collSize.x/2 + 0.01f, collSize.y/2) , new Vector2(Mathf.Sign(rigidbody2D.velocity.x),0), 0.01f);
-		RaycastHit2D tempHit	= Physics2D.Raycast(new Vector2(transform.position.x,transform.position.y)  + Mathf.Sign(rigidbody2D.velocity.x) * new Vector2(collSize.x/2 + 0.01f, -collSize.y/2) , new Vector2(Mathf.Sign(rigidbody2D.velocity.x),0), 0.01f);
-		RaycastHit2D tempHit2	= Physics2D.Raycast(new Vector2(transform.position.x,transform.position.y)  + Mathf.Sign(rigidbody2D.velocity.x) * new Vector2(collSize.x/2 + 0.01f, 0) , new Vector2(Mathf.Sign(rigidbody2D.velocity.x),0), 0.01f);
+		RaycastHit2D hit;
+		RaycastHit2D middleHit	= Physics2D.Raycast(new Vector2(transform.position.x,transform.position.y)  + Mathf.Sign(rigidbody2D.velocity.x) * new Vector2(collSize.x/2 + 0.01f, 0) 			, new Vector2(Mathf.Sign(rigidbody2D.velocity.x),0), 0.01f);
+		RaycastHit2D topHit 	= Physics2D.Raycast(new Vector2(transform.position.x,transform.position.y)  + Mathf.Sign(rigidbody2D.velocity.x) * new Vector2(collSize.x/2 + 0.01f, collSize.y/2) 	, new Vector2(Mathf.Sign(rigidbody2D.velocity.x),0), 0.01f);
+		RaycastHit2D bottomHit	= Physics2D.Raycast(new Vector2(transform.position.x,transform.position.y)  + Mathf.Sign(rigidbody2D.velocity.x) * new Vector2(collSize.x/2 + 0.01f, -collSize.y/2) , new Vector2(Mathf.Sign(rigidbody2D.velocity.x),0), 0.01f);
 
-		if(!hit && tempHit)
+		hit = middleHit;
+
+		if(!hit && topHit)
 		{
-			hit = tempHit;
+			hit = topHit;
 		}
-		if(!hit && tempHit2)
+		if(!hit && bottomHit)
 		{
-			hit = tempHit2;
+			hit = bottomHit;
 		}
 
-		if(hit)
+		if(hit)	//If you hit something then set your position to the hit point so it dosen't create a gap between you and the wall
 		{
 			float newPos = Mathf.Sign(rigidbody2D.velocity.x) * (collSize.x/2 + 0.01f);
 			rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
