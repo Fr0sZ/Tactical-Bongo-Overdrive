@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
 	private bool m_grounded = false;
 	
 
-	void Update()
+	void FixedUpdate()
 	{
 		m_grounded = IsGrounded();
 
