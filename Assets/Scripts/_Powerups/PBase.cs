@@ -7,7 +7,9 @@ public class PBase : MonoBehaviour
 
 	public virtual void OnPickUp(GameObject player)
 	{
-		Camera.main.GetComponent<AudioManager>().PlaySoundEffect(m_pickUpAudioClip);
+		if(m_pickUpAudioClip)
+			Camera.main.GetComponent<AudioManager>().PlaySoundEffect(m_pickUpAudioClip);
+
 		Destroy(this.gameObject);
 	}
 }
