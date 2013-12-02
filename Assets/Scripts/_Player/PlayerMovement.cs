@@ -2,21 +2,18 @@
 using System.Collections;
 
 public class PlayerMovement : MonoBehaviour 
-{
-	public float m_movementSpeed = 5;
+{//8 0.6
+	public float m_groundSpeed = 8;
+	public float m_airSpeed = 5;
 	public float m_jumpForce = 15;
-	public float m_speedSlowdown = 0.1f;
-	
+	public float m_groundSlowdown = 0.6f;	//How %*100 of your current speed you slow down
+	public float m_airSlowdown = 0.4f;	//How %*100 of your current speed you slow down
+
 	private Vector2 m_currentDir;
 
 	private Vector2 m_velocity = new Vector2(1,0);
 	private bool m_grounded = false;
-
-
-	void Start()
-	{
-
-	}
+	
 
 	void Update()
 	{
@@ -24,10 +21,16 @@ public class PlayerMovement : MonoBehaviour
 
 		Vector2 velocityToAdd = Vector2.zero;
 
-		velocityToAdd += m_currentDir * m_movementSpeed;
-
-		velocityToAdd -= m_velocity * m_speedSlowdown;
-
+		if(m_grounded)
+		{
+			velocityToAdd += m_currentDir * m_groundSpeed;
+			velocityToAdd -= m_velocity * m_groundSlowdown;
+		}
+		else
+		{
+			velocityToAdd += m_currentDir * m_airSpeed;
+			velocityToAdd -= m_velocity * m_airSlowdown;
+		}
 
 		if(!m_grounded)
 		{
