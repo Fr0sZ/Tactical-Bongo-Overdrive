@@ -10,13 +10,13 @@ GameObject:
   - 4: {fileID: 400000}
   - 212: {fileID: 21200000}
   - 50: {fileID: 5000000}
+  - 61: {fileID: 6100000}
   - 114: {fileID: 11400002}
   - 114: {fileID: 11400000}
-  - 61: {fileID: 6100000}
   - 114: {fileID: 11400004}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,6 +110,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df6c2264ebb2fbc40b0c7102fc6ea8f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_bloodSpirit: {fileID: 100000, guid: 13fc0f7c9735cb940b4d1a284e04fae9, type: 2}
+  m_bloodParticleSystem: {fileID: 100000, guid: d99714966d68e7c4d823245c1e38ea47,
+    type: 2}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
