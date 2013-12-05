@@ -2,9 +2,18 @@
 using System.Collections;
 
 public abstract class WBase : MonoBehaviour {
-	public Sprite WTexture;
-	public float  FireSpeed;
-	private abstract void Start();
-	private abstract void Update();
+	public float  FireCooldown;
+	public int Ammo;
 	public abstract void Fire();
+
+	private float m_lastFire;
+	protected virtual bool CanFire(){
+		float timeSinceLastFire = Time.timeSinceLevelLoad - m_lastFire;
+
+		if (Ammo>0 && timeSinceLastFire >= FireCooldown){
+			m_lastFire = Time.timeSinceLevelLoad;
+			return true;
+		}
+		return false;
+	}
 }
