@@ -6,7 +6,7 @@ public abstract class WBase : MonoBehaviour {
 	public int Ammo;
 	public abstract void Fire();
 
-	private float m_lastFire();
+	private float m_lastFire;
 	protected virtual bool CanFire(){
 		float timeSinceLastFire = Time.timeSinceLevelLoad - m_lastFire;
 
