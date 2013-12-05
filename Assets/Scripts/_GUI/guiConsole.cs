@@ -9,13 +9,12 @@ public class guiConsole : MonoBehaviour
 	List<ConsoleMessage> entries = new List<ConsoleMessage>();
 	Vector2 scrollPos;
 	bool show;
-	
 	const int margin = 20;
 	
-	public float width = 150;
+	public float width = 250;
 	public float height = 180;
 	
-	GUIContent clearLabel    = new GUIContent("Clear",    "Clear console.");
+	GUIContent clearLabel = new GUIContent("Clear", "Clear console.");
 	
 	void OnEnable  () { Application.RegisterLogCallback(HandleLog); }
 	void OnDisable () { Application.RegisterLogCallback(null); }
