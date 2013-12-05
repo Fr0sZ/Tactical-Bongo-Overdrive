@@ -3,7 +3,33 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
+	private int m_hp = 100;
+
+	public GameObject m_bloodSpirit;
+	public GameObject m_bloodParticleSystem;
+
 	private WBase m_weapon;
+
+	public int Hp
+	{
+		get{return m_hp;}
+		set
+		{
+			m_hp = value;
+
+			if(m_hp <= 0)
+			{
+				OnDeath();
+			}
+		}
+	}
+
+	public WBase Weapon
+	{
+		get{return m_weapon;}
+		set{m_weapon = value;}
+	}
+
 
 	void OnTriggerEnter2D(Collider2D collider)
 	{
@@ -14,7 +40,14 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	public void OnHit()
+	public void OnHit(int dmg, Vector2 point, Vector2 dir)
+	{
+		Instantiate(m_bloodSpirit, point, Quaternion.identity);
+		GameObject obj = Instantiate(m_bloodParticleSystem, point, Quaternion.identity) as GameObject;
+		obj.transform.LookAt(point + dir);
+	}
+
+	void OnDeath()
 	{
 	}
 
