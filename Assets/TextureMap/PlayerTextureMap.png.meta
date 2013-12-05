@@ -54,5 +54,23 @@ TextureImporter:
         height: 32
       alignment: 0
       pivot: {x: .5, y: .5}
+    - name: PlayerTextureMap_Player
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 608
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: PlayerTextureMap_PlayerFoot
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 608
+        width: 12
+        height: 4
+      alignment: 9
+      pivot: {x: .150000006, y: .468536377}
   spritePackingTag: 
   userData: 
