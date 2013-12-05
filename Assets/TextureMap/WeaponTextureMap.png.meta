@@ -44,6 +44,15 @@ TextureImporter:
     textureFormat: -2
     compressionQuality: 50
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: GlockTexture
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 608
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: .243440837, y: .475566864}
   spritePackingTag: 
   userData: 
