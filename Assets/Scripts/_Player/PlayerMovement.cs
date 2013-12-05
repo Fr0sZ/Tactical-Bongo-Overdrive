@@ -14,10 +14,19 @@ public class PlayerMovement : MonoBehaviour
 	private Vector2 m_velocity = new Vector2(1,0);
 	private bool m_grounded = false;
 	
+	private Animator m_animator;
+
+	void Start()
+	{
+		m_animator = GetComponent<Animator>();
+	}
 
 	void FixedUpdate()
 	{
 		m_grounded = IsGrounded();
+
+		m_animator.SetBool("Jump", false);
+		m_animator.SetBool("Grounded", m_grounded);
 
 		Vector2 velocityToAdd = Vector2.zero;
 
@@ -79,6 +88,9 @@ public class PlayerMovement : MonoBehaviour
 	public void SetPlayerDir(Vector2 dir)
 	{
 		m_currentDir = dir;
+
+		m_animator.SetFloat("Speed", Mathf.Abs(dir.x));
+
 		if(dir.x > 0)
 		{
 			transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0, transform.eulerAngles.z);
@@ -93,8 +105,10 @@ public class PlayerMovement : MonoBehaviour
 	{		
 		if(m_grounded)
 		{
+			m_animator.SetBool("Jump", true);
 			rigidbody2D.AddForce(new Vector2(0, m_jumpForce));
 		}
+
 	}
 
 	bool IsGrounded()
