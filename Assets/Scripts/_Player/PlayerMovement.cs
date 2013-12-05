@@ -79,6 +79,14 @@ public class PlayerMovement : MonoBehaviour
 	public void SetPlayerDir(Vector2 dir)
 	{
 		m_currentDir = dir;
+		if(dir.x > 0)
+		{
+			transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0, transform.eulerAngles.z);
+		}
+		else if(dir.x < 0)
+		{
+			transform.eulerAngles = new Vector3(transform.eulerAngles.x, 180, transform.eulerAngles.z);
+		}
 	}
 	
 	public void TryToJump()
