@@ -51,7 +51,7 @@ public class Player : MonoBehaviour {
 	{
 	}
 
-	public void Attack()
+	public void Fire()
 	{
 		if(m_weapon)
 		{
