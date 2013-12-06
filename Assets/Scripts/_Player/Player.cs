@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Player : MonoBehaviour {
 
@@ -9,6 +10,14 @@ public class Player : MonoBehaviour {
 	public GameObject m_bloodParticleSystem;
 
 	private WBase m_weapon;
+
+	private List<PBase> m_trackedPowerups = new List<PBase>();
+
+	public List<PBase> TrackedPowerups
+	{
+		get{return m_trackedPowerups;}
+		set{m_trackedPowerups = value;}
+	}
 
 	public int Hp
 	{
@@ -49,15 +58,31 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	public void OnHit(int dmg, Vector2 point, Vector2 dir)
+	void Update()
+	{
+		if(Input.GetKeyDown(KeyCode.E))
+			OnHit(this.gameObject, 5, transform.position, new Vector2(1,0));
+	}
+
+	public void OnHit(GameObject shooter, int dmg, Vector2 point, Vector2 dir)
 	{
 		Instantiate(m_bloodSpirit, point, Quaternion.identity);
 		GameObject obj = Instantiate(m_bloodParticleSystem, point, Quaternion.identity) as GameObject;
 		obj.transform.LookAt(point + dir);
+		Destroy(obj, 3);
+
+		foreach(PBase powerup in m_trackedPowerups)
+		{
+			powerup.OnHit(shooter, dmg, point, dir);
+		}
 	}
 
 	void OnDeath()
 	{
+		foreach(PBase powerup in m_trackedPowerups)
+		{
+			powerup.OnDeath();
+		}
 	}
 
 	public void Fire()
@@ -65,6 +90,10 @@ public class Player : MonoBehaviour {
 		if(m_weapon)
 		{
 			m_weapon.Fire();
+			foreach(PBase powerup in m_trackedPowerups)
+			{
+				powerup.OnFire();
+			}
 		}
 		else
 		{

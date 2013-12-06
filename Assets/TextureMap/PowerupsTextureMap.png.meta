@@ -63,5 +63,32 @@ TextureImporter:
         height: 18
       alignment: 2
       pivot: {x: .5, y: 1}
+    - name: PowerupsTextureMap_MagicHat
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 608
+        width: 32
+        height: 21
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: PowerupsTextureMap_HarryPotterFace
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 622
+        width: 19
+        height: 15
+      alignment: 9
+      pivot: {x: .600000024, y: .300000012}
+    - name: PowerupsTextureMap_LightingBolt
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 613
+        width: 31
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
   spritePackingTag: 
   userData: 
