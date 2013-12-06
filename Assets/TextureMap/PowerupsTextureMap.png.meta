@@ -44,6 +44,24 @@ TextureImporter:
     textureFormat: -2
     compressionQuality: 50
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: PowerupsTextureMap_Ballon
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 626
+        width: 11
+        height: 14
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: PowerupsTextureMap_BallonRope
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 608
+        width: 1
+        height: 18
+      alignment: 2
+      pivot: {x: .5, y: 1}
   spritePackingTag: 
   userData: 

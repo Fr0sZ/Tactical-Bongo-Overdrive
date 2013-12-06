@@ -40,6 +40,15 @@ public class Player : MonoBehaviour {
 		}
 	}
 
+	void OnCollisionEnter2D(Collision2D collision)
+	{
+		PBase powerup;
+		if(powerup = collision.collider.GetComponent<PBase>())
+		{
+			powerup.OnPickUp(this.gameObject);
+		}
+	}
+
 	public void OnHit(int dmg, Vector2 point, Vector2 dir)
 	{
 		Instantiate(m_bloodSpirit, point, Quaternion.identity);
