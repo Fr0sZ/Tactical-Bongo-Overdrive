@@ -4,17 +4,15 @@ using System.Collections.Generic;
 
 public class guiConsole : MonoBehaviour
 {
-	public KeyCode toggleKey = KeyCode.BackQuote;
-	
 	List<ConsoleMessage> entries = new List<ConsoleMessage>();
 	Vector2 scrollPos;
 	bool show;
 	const int margin = 20;
-	
+	GUIContent clearLabel = new GUIContent("Clear", "Clear console.");
+
+	public KeyCode toggleKey = KeyCode.Tab;
 	public float width = 250;
 	public float height = 180;
-	
-	GUIContent clearLabel = new GUIContent("Clear", "Clear console.");
 	
 	void OnEnable  () { Application.RegisterLogCallback(HandleLog); }
 	void OnDisable () { Application.RegisterLogCallback(null); }
@@ -71,10 +69,9 @@ public class guiConsole : MonoBehaviour
 		
 		GUI.contentColor = Color.white;
 		GUILayout.EndScrollView();
+
 		GUILayout.BeginHorizontal();
-
 		if (GUILayout.Button(clearLabel)) { entries.Clear(); }
-
 		GUILayout.EndHorizontal();
 	}
 
