@@ -52,9 +52,14 @@ public class Player : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D collision)
 	{
 		PBase powerup;
+		WBase weapon;
 		if(powerup = collision.collider.GetComponent<PBase>())
 		{
 			powerup.OnPickUp(this.gameObject);
+
+		}else if (weapon = collision.collider.GetComponent<WBase>())
+		{
+			weapon.OnPickUp(this.gameObject);
 		}
 	}
 
