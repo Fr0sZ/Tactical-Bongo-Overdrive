@@ -45,7 +45,7 @@ TextureImporter:
     compressionQuality: 50
   spriteSheet:
     sprites:
-    - name: GlockTexture
+    - name: Pistol
       rect:
         serializedVersion: 2
         x: 0
@@ -54,5 +54,50 @@ TextureImporter:
         height: 32
       alignment: 9
       pivot: {x: .243440837, y: .475566864}
+    - name: Mp4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 608
+        width: 64
+        height: 32
+      alignment: 9
+      pivot: {x: .314399183, y: .40719986}
+    - name: Baseballbat
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 608
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: .190665245, y: .211288452}
+    - name: Shotgun
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 608
+        width: 64
+        height: 32
+      alignment: 9
+      pivot: {x: .27479142, y: .345333099}
+    - name: Sniper
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 608
+        width: 64
+        height: 32
+      alignment: 9
+      pivot: {x: .371110439, y: .40719986}
+    - name: Rocketlauncher
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 608
+        width: 64
+        height: 32
+      alignment: 9
+      pivot: {x: .345332623, y: .314399719}
   spritePackingTag: 
   userData: 
