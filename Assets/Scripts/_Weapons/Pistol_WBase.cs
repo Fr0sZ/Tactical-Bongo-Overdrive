@@ -14,5 +14,4 @@ public class Pistol_WBase : WBase {
 		
 	}
 	
-	
 }
