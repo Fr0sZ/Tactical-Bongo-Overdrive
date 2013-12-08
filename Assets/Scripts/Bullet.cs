@@ -12,6 +12,10 @@ public class Bullet : MonoBehaviour {
 		{
 			collider.gameObject.GetComponent<Player>().OnHit(m_owner, m_damage, transform.position, rigidbody2D.velocity);
 			Destroy(gameObject);
+		}else if(collider.tag == "Ground")
+		{
+		
+			Destroy(gameObject);
 		}
 	}
 }

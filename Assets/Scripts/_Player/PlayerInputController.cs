@@ -19,10 +19,11 @@ public class PlayerInputController : MonoBehaviour
 	public List<Controls> m_playerControls = new List<Controls>();
 
 	private PlayerMovement m_playerMovement;
-
+	private Player m_playerController;
 	void Start()
 	{
 		m_playerMovement = GetComponent<PlayerMovement>();
+		m_playerController = GetComponent<Player>();
 	}
 
 	// Update is called once per frame
@@ -41,5 +42,10 @@ public class PlayerInputController : MonoBehaviour
 		{
 			m_playerMovement.TryToJump();
 		}
+		if(Input.GetKeyDown(m_playerControls[m_player-1].Attack))
+		{
+			m_playerController.Fire();
+		}
+
 	}
 }
