@@ -42,7 +42,7 @@ public class PlayerInputController : MonoBehaviour
 		{
 			m_playerMovement.TryToJump();
 		}
-		if(Input.GetKeyDown(m_playerControls[m_player-1].Attack))
+		if(Input.GetKey(m_playerControls[m_player-1].Attack))
 		{
 			m_playerController.Fire();
 		}
