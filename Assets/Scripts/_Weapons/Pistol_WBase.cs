@@ -14,8 +14,11 @@ public class Pistol_WBase : WBase {
 			if(Mathf.RoundToInt(transform.parent.eulerAngles.y) == 180)
 				dir = -1;
 
+			Vector3 BulletOffsetTemp = BulletOffset;
+
+			BulletOffsetTemp.x = BulletOffsetTemp.x * dir;
 			Ammo--;
-			GameObject newBullet = Instantiate(Bullet,BulletOffset + transform.position,Quaternion.Euler(transform.parent.eulerAngles)) as GameObject;
+			GameObject newBullet = Instantiate(Bullet,BulletOffsetTemp + transform.position,Quaternion.Euler(transform.parent.eulerAngles)) as GameObject;
 			newBullet.rigidbody2D.AddForce(new Vector2(BulletForce*dir,Random.Range(-Spread,Spread)));
 
 		}
