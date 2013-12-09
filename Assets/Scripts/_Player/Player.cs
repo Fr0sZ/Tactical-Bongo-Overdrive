@@ -63,12 +63,6 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	void Update()
-	{
-		if(Input.GetKeyDown(KeyCode.E))
-			OnHit(this.gameObject, 5, transform.position, new Vector2(1,0));
-	}
-
 	public void OnHit(GameObject shooter, int dmg, Vector2 point, Vector2 dir)
 	{
 		Instantiate(m_bloodSpirit, point, Quaternion.identity);
