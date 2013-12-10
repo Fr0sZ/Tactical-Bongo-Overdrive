@@ -2,7 +2,9 @@
 using System.Collections;
 
 public class PlayerMovement : MonoBehaviour 
-{//8 0.6
+{
+	const float ExtraJumpInputTime	= 0.2f; //How long extra time you get for a jump
+
 	public float m_groundSpeed = 8;
 	public float m_airSpeed = 5;
 	public float m_jumpForce = 15;
@@ -16,9 +18,19 @@ public class PlayerMovement : MonoBehaviour
 	
 	private Animator m_animator;
 
+	private float m_lastJumpTimer;
+
 	void Start()
 	{
 		m_animator = GetComponent<Animator>();
+	}
+
+	void Update()
+	{
+		m_lastJumpTimer -= Time.deltaTime;
+
+		if(m_lastJumpTimer > 0)
+			TryToJump();
 	}
 
 	void FixedUpdate()
@@ -107,8 +119,10 @@ public class PlayerMovement : MonoBehaviour
 		{
 			m_animator.SetBool("Jump", true);
 			rigidbody2D.AddForce(new Vector2(0, m_jumpForce));
+			m_lastJumpTimer = 0;
 		}
-
+		else if(m_lastJumpTimer < 0)
+			m_lastJumpTimer = ExtraJumpInputTime;
 	}
 
 	bool IsGrounded()
