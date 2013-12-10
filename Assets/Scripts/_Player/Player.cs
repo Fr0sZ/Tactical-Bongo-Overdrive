@@ -62,13 +62,14 @@ public class Player : MonoBehaviour {
 			weapon.OnPickUp(this.gameObject);
 		}
 	}
-
+	
 	public void OnHit(GameObject shooter, int dmg, Vector2 point, Vector2 dir)
 	{
 		Instantiate(m_bloodSpirit, point, Quaternion.identity);
 		GameObject obj = Instantiate(m_bloodParticleSystem, point, Quaternion.identity) as GameObject;
 		obj.transform.LookAt(point + dir);
 		Destroy(obj, 3);
+		Hp -= dmg;
 
 		foreach(PBase powerup in m_trackedPowerups)
 		{
@@ -78,9 +79,19 @@ public class Player : MonoBehaviour {
 
 	void OnDeath()
 	{
+		Debug.Log("Dead!");
+
 		foreach(PBase powerup in m_trackedPowerups)
 		{
 			powerup.OnDeath();
+		}
+
+		gameObject.GetComponent<PlayerInputController>().enabled = false;
+		gameObject.rigidbody2D.fixedAngle = false;
+
+		foreach (Transform child in transform)
+		{
+			Destroy(child.gameObject);
 		}
 	}
 
