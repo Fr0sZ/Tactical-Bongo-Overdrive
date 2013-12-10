@@ -138,12 +138,4 @@ public class PlayerMovement : MonoBehaviour
 
 		return false;
 	}
-
-	void OnGUI()
-	{
-		GUILayout.Label("Real velocity: " 	+ rigidbody2D.velocity.ToString());
-		GUILayout.Label("Code velocity: " 	+ m_velocity.ToString());
-		GUILayout.Label("Grounded: " 		+ m_grounded.ToString());
-
-	}
 }
