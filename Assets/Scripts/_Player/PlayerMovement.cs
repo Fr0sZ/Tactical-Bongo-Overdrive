@@ -131,9 +131,7 @@ public class PlayerMovement : MonoBehaviour
 
 		Vector2 collSize = GetComponent<BoxCollider2D>().size;
 
-		if(Physics2D.Raycast(new Vector2(transform.position.x,transform.position.y)  - new Vector2(0, collSize.y/2 + 0.01f) , -Vector2.up, jumpRayRange) ||
-		   Physics2D.Raycast(new Vector2(transform.position.x,transform.position.y)  - new Vector2(collSize.x/2, collSize.y/2 + 0.01f) , -Vector2.up, jumpRayRange) ||
-		   Physics2D.Raycast(new Vector2(transform.position.x,transform.position.y)  - new Vector2(-collSize.x/2, collSize.y/2 + 0.01f) , -Vector2.up, jumpRayRange))
+		if(Physics2D.OverlapArea((Vector2)transform.position + new Vector2(-collSize.x/2 + 0.02f , -collSize.y/2 - 0.05f), (Vector2)transform.position + new Vector2(collSize.x/2 - 0.02f , -collSize.y/2 - 0.1f)))
 			return true;
 
 		return false;
