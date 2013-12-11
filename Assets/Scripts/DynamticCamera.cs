@@ -4,8 +4,10 @@ using System.Collections.Generic;
 
 public class DynamticCamera : MonoBehaviour {
 
-	const float MinSize = 10;
-	const float MaxSize = 25;
+	public float m_minSize = 10;
+	public float m_maxSize = 25;
+
+	public float m_sizeMultiplier = 0.15f;
 
 	private GameObject[] m_playerList;
 
@@ -25,9 +27,9 @@ public class DynamticCamera : MonoBehaviour {
 
 		float dist = Vector2.Distance(m_playerList[0].transform.position, m_playerList[1].transform.position);
 
-		float size =   MinSize + dist * 0.1f;
+		float size = m_minSize + dist * 0.15f;
 
-		size = Mathf.Clamp(size, MinSize, MaxSize);
+		size = Mathf.Clamp(size, m_minSize, m_maxSize);
 
 		GetComponent<Camera>().orthographicSize = size;
 	}
