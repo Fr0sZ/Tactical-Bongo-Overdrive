@@ -72,13 +72,16 @@ public class PlayerMovement : MonoBehaviour
 		//Make sure so the player dosen't go through things
 		Vector2 collSize = GetComponent<BoxCollider2D>().size;
 
-		RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x,transform.position.y)  + Mathf.Sign(rigidbody2D.velocity.x) * new Vector2(collSize.x/2 + 0.01f, 0) 			, new Vector2(Mathf.Sign(rigidbody2D.velocity.x),0), 0.01f);
+		LayerMask layermask = 1 << 8;
+		layermask = ~layermask;
+
+		RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x,transform.position.y)  + Mathf.Sign(rigidbody2D.velocity.x) * new Vector2(collSize.x/2 + 0.01f, 0) , new Vector2(Mathf.Sign(rigidbody2D.velocity.x),0), 0.01f, layermask);
 	
 		if(!hit)
 		{
 			for(int i = 0; i < CollisionRays; i++)
 			{
-				RaycastHit2D tempHit = Physics2D.Raycast(new Vector2(transform.position.x,transform.position.y)  + Mathf.Sign(rigidbody2D.velocity.x) * new Vector2(collSize.x/2 + 0.01f, -collSize.y/2 + (collSize.y / (CollisionRays-1)) * i) 	, new Vector2(Mathf.Sign(rigidbody2D.velocity.x),0), 0.01f);
+				RaycastHit2D tempHit = Physics2D.Raycast(new Vector2(transform.position.x,transform.position.y)  + Mathf.Sign(rigidbody2D.velocity.x) * new Vector2(collSize.x/2 + 0.01f, -collSize.y/2 + (collSize.y / (CollisionRays-1)) * i) 	, new Vector2(Mathf.Sign(rigidbody2D.velocity.x),0), 0.01f, layermask);
 				if(tempHit)
 				{
 					hit = tempHit;
@@ -89,6 +92,11 @@ public class PlayerMovement : MonoBehaviour
 
 		if(hit)	//If you hit something then set your position to the hit point so it dosen't create a gap between you and the wall
 		{
+			if(hit.rigidbody)
+			{
+				hit.rigidbody.AddForce(rigidbody2D.velocity);
+			}
+
 			float newPos = Mathf.Sign(rigidbody2D.velocity.x) * (collSize.x/2 + 0.01f);
 			rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
 			m_velocity = new Vector2(0, m_velocity.y);
@@ -129,7 +137,10 @@ public class PlayerMovement : MonoBehaviour
 	{
 		Vector2 collSize = GetComponent<BoxCollider2D>().size;
 
-		if(Physics2D.OverlapArea((Vector2)transform.position + new Vector2(-collSize.x/2 + 0.02f , -collSize.y/2 - 0.05f), (Vector2)transform.position + new Vector2(collSize.x/2 - 0.02f , -collSize.y/2 - 0.1f)))
+		LayerMask layermask = 1 << 8;
+		layermask = ~layermask;
+
+		if(Physics2D.OverlapArea((Vector2)transform.position + new Vector2(-collSize.x/2 + 0.02f , -collSize.y/2 - 0.05f), (Vector2)transform.position + new Vector2(collSize.x/2 - 0.02f , -collSize.y/2 - 0.1f), layermask))
 			return true;
 
 		return false;
