@@ -11,6 +11,7 @@ public class Controls	//It need to be a class becuse structs aren't serializable
 	public KeyCode Right;
 	public KeyCode Jump;
 	public KeyCode Attack;
+	public KeyCode Throw;
 }
 
 public class PlayerInputController : MonoBehaviour 
