@@ -99,5 +99,14 @@ TextureImporter:
         height: 32
       alignment: 9
       pivot: {x: .345332623, y: .314399719}
+    - name: BlackHoleGun
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 575
+        width: 64
+        height: 33
+      alignment: 9
+      pivot: {x: .310929894, y: .16880475}
   spritePackingTag: 
   userData: 

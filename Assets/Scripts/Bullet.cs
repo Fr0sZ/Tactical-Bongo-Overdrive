@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour {
 	public GameObject m_owner;
 	public int m_damage;
 
-	void OnTriggerEnter2D(Collider2D collider)
+	public virtual void OnTriggerEnter2D(Collider2D collider)
 	{
 		if(collider.tag == "Player" && m_owner != collider.gameObject)
 		{
