@@ -187,6 +187,7 @@ MonoBehaviour:
   m_bloodParticleSystem: {fileID: 100000, guid: d99714966d68e7c4d823245c1e38ea47,
     type: 2}
   m_deadBody: {fileID: 100000, guid: f826d562885aa8f4eb01978b364392d6, type: 2}
+  m_damageNumber: {fileID: 100000, guid: 8f28b931614e9d840876b28660479279, type: 2}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

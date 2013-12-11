@@ -10,6 +10,8 @@ public class Player : MonoBehaviour {
 	public GameObject m_bloodParticleSystem;
 	public GameObject m_deadBody;
 
+	public GameObject m_damageNumber;
+
 	private WBase m_weapon;
 
 	private List<PBase> m_trackedPowerups = new List<PBase>();
@@ -75,6 +77,9 @@ public class Player : MonoBehaviour {
 		{
 			powerup.OnHit(shooter, dmg, point, dir);
 		}
+
+		GameObject dmgNumber = Instantiate(m_damageNumber, (Vector2)transform.position + new Vector2(0,1.5f), Quaternion.identity) as GameObject;
+		dmgNumber.GetComponent<TextMesh>().text = dmg.ToString();
 
 		Hp -= dmg;
 	}
