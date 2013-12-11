@@ -164,12 +164,14 @@ MonoBehaviour:
     Right: 100
     Jump: 32
     Attack: 101
+    Throw: 0
   - Up: 273
     Down: 274
     Left: 276
     Right: 275
     Jump: 107
     Attack: 108
+    Throw: 0
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -184,6 +186,7 @@ MonoBehaviour:
   m_bloodSpirit: {fileID: 100000, guid: 13fc0f7c9735cb940b4d1a284e04fae9, type: 2}
   m_bloodParticleSystem: {fileID: 100000, guid: d99714966d68e7c4d823245c1e38ea47,
     type: 2}
+  m_deadBody: {fileID: 100000, guid: f826d562885aa8f4eb01978b364392d6, type: 2}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

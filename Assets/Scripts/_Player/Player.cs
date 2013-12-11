@@ -8,6 +8,7 @@ public class Player : MonoBehaviour {
 
 	public GameObject m_bloodSpirit;
 	public GameObject m_bloodParticleSystem;
+	public GameObject m_deadBody;
 
 	private WBase m_weapon;
 
@@ -69,30 +70,26 @@ public class Player : MonoBehaviour {
 		GameObject obj = Instantiate(m_bloodParticleSystem, point, Quaternion.identity) as GameObject;
 		obj.transform.LookAt(point + dir);
 		Destroy(obj, 3);
-		Hp -= dmg;
 
 		foreach(PBase powerup in m_trackedPowerups)
 		{
 			powerup.OnHit(shooter, dmg, point, dir);
 		}
+
+		Hp -= dmg;
 	}
 
 	void OnDeath()
 	{
-		Debug.Log("Dead!");
-
 		foreach(PBase powerup in m_trackedPowerups)
 		{
 			powerup.OnDeath();
 		}
 
-		gameObject.GetComponent<PlayerInputController>().enabled = false;
-		gameObject.rigidbody2D.fixedAngle = false;
+		GameObject deadBody = Instantiate(m_deadBody, transform.position, Quaternion.identity) as GameObject;
+		deadBody.GetComponent<SpriteRenderer>().color = GetComponent<SpriteRenderer>().color - new Color(0.15f,0.15f,0.15f, 0);
 
-		foreach (Transform child in transform)
-		{
-			Destroy(child.gameObject);
-		}
+		Destroy(gameObject);
 	}
 
 	public void Fire()
