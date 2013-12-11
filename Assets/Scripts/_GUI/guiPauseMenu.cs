@@ -43,7 +43,7 @@ public class guiPauseMenu : MonoBehaviour {
 		}
 
 		if(GUI.Button(new Rect(20,heightPos +  buttonSpace*2 + 10,80,20), "MainMenu")) {
-			Application.LoadLevel(1);
+			Application.LoadLevel(0);
 		}
 
 		if(GUI.Button(new Rect(20,heightPos + buttonSpace*3 + 10,80,20), "Quit")) {
