@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FireCooldown: 1
-  Ammo: 15
+  Ammo: 2
   m_pickUpAudioClip: {fileID: 0}
   Bullet: {fileID: 100000, guid: 8563dbb26200e8a468d46009229516c2, type: 2}
   BulletForce: 2
