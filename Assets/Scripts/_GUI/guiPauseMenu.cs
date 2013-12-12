@@ -12,6 +12,7 @@ public class guiPauseMenu : MonoBehaviour {
 	float widthSettingsC = 0;
 	bool show;
 	bool showSettings;
+	public string MenuSceneName = "menu";
 	
 	void Update ()
 	{ 
@@ -43,7 +44,7 @@ public class guiPauseMenu : MonoBehaviour {
 		}
 
 		if(GUI.Button(new Rect(20,heightPos +  buttonSpace*2 + 10,80,20), "MainMenu")) {
-			Application.LoadLevel(0);
+			Application.LoadLevel("menu");
 		}
 
 		if(GUI.Button(new Rect(20,heightPos + buttonSpace*3 + 10,80,20), "Quit")) {
