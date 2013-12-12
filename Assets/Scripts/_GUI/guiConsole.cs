@@ -38,7 +38,6 @@ public class guiConsole : MonoBehaviour
 	{
 		Rect windowRect = new Rect(5,5,width,height);
 		if (!show) { return; }
-		
 		windowRect = GUILayout.Window(123, windowRect, ConsoleWindow, "DebugConsole");
 	}
 
