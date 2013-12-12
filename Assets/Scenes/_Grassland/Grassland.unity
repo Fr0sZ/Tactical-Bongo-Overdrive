@@ -436,6 +436,7 @@ MonoBehaviour:
   FireCooldown: 1
   Ammo: 15
   m_pickUpAudioClip: {fileID: 0}
+  m_fireSound: {fileID: 8300000, guid: fc56d1e1f27d94cfe9e275533462e302, type: 3}
   Bullet: {fileID: 100000, guid: aaf104e8f8257144995275c74f3a9431, type: 2}
   BulletForce: 100
   BulletOffset: {x: 1.29999995, y: .150000006, z: 1}
@@ -5513,6 +5514,7 @@ MonoBehaviour:
   FireCooldown: .200000003
   Ammo: 20
   m_pickUpAudioClip: {fileID: 0}
+  m_fireSound: {fileID: 8300000, guid: e815181b889024a32828e860b1417f40, type: 3}
   Bullet: {fileID: 100000, guid: 5a390745f0fe71e48b8098b440c79072, type: 2}
   BulletForce: 10
   BulletOffset: {x: .699999988, y: .300000012, z: 1}
@@ -5644,10 +5646,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FireCooldown: .100000001
-  Ammo: 40
+  Ammo: 80
   m_pickUpAudioClip: {fileID: 0}
+  m_fireSound: {fileID: 8300000, guid: e9f36f7bbdf974b8984aecd7e64ca484, type: 3}
   Bullet: {fileID: 100000, guid: 8a184d46665f764458d43bcdf90bdb15, type: 2}
-  BulletForce: 10
+  BulletForce: 20
   BulletOffset: {x: 1.20000005, y: .270000011, z: 1}
   Spread: 1
 --- !u!50 &1331070931
@@ -7360,6 +7363,7 @@ GameObject:
   - 124: {fileID: 1809161224}
   - 81: {fileID: 1809161223}
   - 114: {fileID: 1809161228}
+  - 114: {fileID: 1809161229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -7442,6 +7446,17 @@ MonoBehaviour:
   m_minSize: 10
   m_maxSize: 25
   m_sizeMultiplier: .150000006
+--- !u!114 &1809161229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1809161222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d15e2b6b2bc82cf4a8789cb7e93f657b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1811513437
 GameObject:
   m_ObjectHideFlags: 0
@@ -7660,6 +7675,7 @@ MonoBehaviour:
   FireCooldown: 1
   Ammo: 2
   m_pickUpAudioClip: {fileID: 0}
+  m_fireSound: {fileID: 0}
   Bullet: {fileID: 100000, guid: 8563dbb26200e8a468d46009229516c2, type: 2}
   BulletForce: 2
   BulletOffset: {x: 1.29999995, y: .150000006, z: 1}
