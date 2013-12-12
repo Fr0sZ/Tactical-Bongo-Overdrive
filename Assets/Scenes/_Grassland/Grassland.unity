@@ -827,7 +827,7 @@ GameObject:
   - 114: {fileID: 225326608}
   - 114: {fileID: 225326607}
   - 95: {fileID: 225326606}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1235,7 +1235,7 @@ GameObject:
   - 114: {fileID: 254795528}
   - 114: {fileID: 254795527}
   - 95: {fileID: 254795526}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1551,7 +1551,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 349469328}
   - 212: {fileID: 349469329}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1824,7 +1824,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 433112491}
   - 212: {fileID: 433112492}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6214,7 +6214,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1500706524}
   - 212: {fileID: 1500706525}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6999,7 +6999,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1761015879}
   - 212: {fileID: 1761015880}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
