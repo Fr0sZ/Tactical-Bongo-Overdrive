@@ -43,7 +43,7 @@ public class menuButtons : MonoBehaviour {
 				int count = 0;
 				foreach (string s in Scenes)
 				{
-					if(GUI.Button(new Rect(posBox[0] + 10, posBox[1] + 50 + (count * 50), 150, 30), "Load" + s)) {
+					if(GUI.Button(new Rect(posBox[0] + 10, posBox[1] + 50 + (count * 50), 150, 30), "Load " + s)) {
 						Application.LoadLevel(s);
 					}
 					count += 1;
