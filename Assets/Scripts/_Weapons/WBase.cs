@@ -21,7 +21,7 @@ public abstract class WBase : MonoBehaviour {
 	}
 
 	public AudioClip m_pickUpAudioClip;
-	
+	public AudioClip m_fireSound;
 	public virtual void OnPickUp(GameObject player)
 	{
 		PlayPickUpSound();
@@ -41,6 +41,12 @@ public abstract class WBase : MonoBehaviour {
 		if(m_pickUpAudioClip)
 			Camera.main.GetComponent<AudioManager>().PlaySoundEffect(m_pickUpAudioClip);
 	}
+	protected void PlayFireSound()
+	{		
+		if(m_fireSound)
+			Camera.main.GetComponent<AudioManager>().PlaySoundEffect(m_fireSound);
+	}
+
 
 	
 }
