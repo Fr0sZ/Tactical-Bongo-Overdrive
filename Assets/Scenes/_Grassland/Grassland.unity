@@ -904,14 +904,14 @@ MonoBehaviour:
     Right: 100
     Jump: 32
     Attack: 101
-    Throw: 0
+    Throw: 113
   - Up: 273
     Down: 274
     Left: 276
     Right: 275
     Jump: 107
     Attack: 108
-    Throw: 0
+    Throw: 106
 --- !u!61 &225326610
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1334,14 +1334,14 @@ MonoBehaviour:
     Right: 100
     Jump: 32
     Attack: 101
-    Throw: 0
+    Throw: 113
   - Up: 273
     Down: 274
     Left: 276
     Right: 275
     Jump: 107
     Attack: 108
-    Throw: 0
+    Throw: 106
 --- !u!61 &254795530
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5549,6 +5549,14 @@ Prefab:
       propertyPath: m_SpawnArea
       value: 
       objectReference: {fileID: 2074403301}
+    - target: {fileID: 11400002, guid: 4a8191da79a16c7439477fb8cca4a95d, type: 2}
+      propertyPath: m_playerControls.Array.data[0].Throw
+      value: 113
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 4a8191da79a16c7439477fb8cca4a95d, type: 2}
+      propertyPath: m_playerControls.Array.data[1].Throw
+      value: 106
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4a8191da79a16c7439477fb8cca4a95d, type: 2}
   m_RootGameObject: {fileID: 225326605}

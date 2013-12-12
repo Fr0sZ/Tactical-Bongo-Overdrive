@@ -121,4 +121,16 @@ public class Player : MonoBehaviour {
 
 		}
 	}
+
+	public void Throw()
+	{
+
+		if(m_weapon)
+		{
+			m_weapon.transform.parent = null;
+			m_weapon = null;
+
+		}
+
+	}
 }
