@@ -27,6 +27,8 @@ public class Pistol_WBase : WBase {
 	}
 	public override void OnPickUp(GameObject player)
 	{
+
+		if (player.GetComponent<Player>().Weapon == null){
 		PlayPickUpSound();
 		
 		Destroy(GetComponent<Rigidbody2D>());
@@ -38,6 +40,7 @@ public class Pistol_WBase : WBase {
 		
 		player.GetComponent<Player>().Weapon = this;
 		Bullet.GetComponent<Bullet>().m_owner = player;
+		}
 	}
 	
 }
