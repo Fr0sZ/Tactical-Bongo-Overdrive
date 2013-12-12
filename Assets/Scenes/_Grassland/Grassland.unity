@@ -785,7 +785,7 @@ GameObject:
   - 4: {fileID: 208879705}
   m_Layer: 0
   m_Name: Platfrom5
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -864,7 +864,9 @@ MonoBehaviour:
   m_bloodParticleSystem: {fileID: 100000, guid: d99714966d68e7c4d823245c1e38ea47,
     type: 2}
   m_deadBody: {fileID: 100000, guid: f826d562885aa8f4eb01978b364392d6, type: 2}
+  m_SpawnArea: {fileID: 2074403301}
   m_damageNumber: {fileID: 100000, guid: 8f28b931614e9d840876b28660479279, type: 2}
+  m_playerPrefab: {fileID: 225326605}
 --- !u!114 &225326608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1292,7 +1294,9 @@ MonoBehaviour:
   m_bloodParticleSystem: {fileID: 100000, guid: d99714966d68e7c4d823245c1e38ea47,
     type: 2}
   m_deadBody: {fileID: 100000, guid: f826d562885aa8f4eb01978b364392d6, type: 2}
+  m_SpawnArea: {fileID: 1003258267}
   m_damageNumber: {fileID: 100000, guid: 8f28b931614e9d840876b28660479279, type: 2}
+  m_playerPrefab: {fileID: 254795525}
 --- !u!114 &254795528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3040,7 +3044,7 @@ GameObject:
   - 4: {fileID: 675104010}
   m_Layer: 0
   m_Name: Platfrom2
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3677,6 +3681,10 @@ Prefab:
       propertyPath: m_jumpForce
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: 4a8191da79a16c7439477fb8cca4a95d, type: 2}
+      propertyPath: m_SpawnArea
+      value: 
+      objectReference: {fileID: 1003258267}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4a8191da79a16c7439477fb8cca4a95d, type: 2}
   m_RootGameObject: {fileID: 254795525}
@@ -4031,7 +4039,7 @@ GameObject:
   - 4: {fileID: 936671044}
   m_Layer: 0
   m_Name: Platfrom6
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4891,7 +4899,7 @@ GameObject:
   - 4: {fileID: 1166328806}
   m_Layer: 0
   m_Name: Platfrom3
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5254,7 +5262,7 @@ GameObject:
   - 4: {fileID: 1273196671}
   m_Layer: 0
   m_Name: Platfrom1
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5293,7 +5301,7 @@ GameObject:
   - 4: {fileID: 1277670647}
   m_Layer: 0
   m_Name: Platfrom7
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5537,6 +5545,10 @@ Prefab:
       propertyPath: m_player
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: 4a8191da79a16c7439477fb8cca4a95d, type: 2}
+      propertyPath: m_SpawnArea
+      value: 
+      objectReference: {fileID: 2074403301}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4a8191da79a16c7439477fb8cca4a95d, type: 2}
   m_RootGameObject: {fileID: 225326605}
@@ -5823,7 +5835,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1436920023}
-  m_LocalRotation: {x: 0, y: 0, z: -.342020124, w: .939692616}
+  m_LocalRotation: {x: 0, y: 0, z: -.342020154, w: .939692676}
   m_LocalPosition: {x: 14, y: -12.8000002, z: .01953125}
   m_LocalScale: {x: 10, y: 10, z: 0}
   m_Children: []
@@ -5890,7 +5902,7 @@ GameObject:
   - 61: {fileID: 1455457214}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6043,7 +6055,7 @@ GameObject:
   - 4: {fileID: 1486016444}
   m_Layer: 0
   m_Name: Platfrom4
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7928,7 +7940,7 @@ Transform:
   m_GameObject: {fileID: 2074403301}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 11.4000006, z: 0}
-  m_LocalScale: {x: .0117647061, y: .200000003, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1003258271}
 --- !u!65 &2074403303
@@ -7941,7 +7953,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 85, y: 3, z: 1}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &2074403304
 MeshFilter:
