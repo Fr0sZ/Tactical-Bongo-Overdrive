@@ -47,6 +47,10 @@ public class PlayerInputController : MonoBehaviour
 		{
 			m_playerController.Fire();
 		}
+		if(Input.GetKeyDown(m_playerControls[m_player-1].Throw))
+		{
+			m_playerController.Throw();
+		}
 
 	}
 }

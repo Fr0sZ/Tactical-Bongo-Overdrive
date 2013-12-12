@@ -68,10 +68,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FireCooldown: .100000001
-  Ammo: 40
+  Ammo: 80
   m_pickUpAudioClip: {fileID: 0}
+  m_fireSound: {fileID: 8300000, guid: e9f36f7bbdf974b8984aecd7e64ca484, type: 3}
   Bullet: {fileID: 100000, guid: 8a184d46665f764458d43bcdf90bdb15, type: 2}
-  BulletForce: 10
+  BulletForce: 20
   BulletOffset: {x: 1.20000005, y: .270000011, z: 1}
   Spread: 1
 --- !u!212 &21200000

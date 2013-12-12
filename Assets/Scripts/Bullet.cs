@@ -11,11 +11,12 @@ public class Bullet : MonoBehaviour {
 		if(collider.tag == "Player" && m_owner != collider.gameObject)
 		{
 			collider.gameObject.GetComponent<Player>().OnHit(m_owner, m_damage, transform.position, rigidbody2D.velocity);
-			Destroy(gameObject);
-		}else if(collider.tag == "Ground")
-		{
-		
-			Destroy(gameObject);
+
 		}
+
+		if(collider.rigidbody2D)
+			collider.rigidbody2D.AddForce(rigidbody2D.velocity);
+
+		Destroy(gameObject);
 	}
 }

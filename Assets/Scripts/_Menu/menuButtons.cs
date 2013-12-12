@@ -3,16 +3,15 @@ using System.Collections;
 
 public class menuButtons : MonoBehaviour {
 
-	// Use this for initialization
 	void Start () {
 	
 	}
 	
-	// Update is called once per frame
 	void Update () {
 
 	}
-
+	
+	string[] Scenes = new string[3] { "Grassland", "ConstructionSite", "PlayerTest" };
 	bool[] show = new bool[3];
 	float buttonSpace = Screen.height / 6;
 	int[] posBox = {120, 20};
@@ -40,7 +39,15 @@ public class menuButtons : MonoBehaviour {
 			string menuName = null;
 			// Map settings
 			if (show[0] || show[1]){
-				GUI.Label (new Rect (posBox[0] + 10, posBox[1] + 10, 100, 20), "Map!");
+				GUI.Label (new Rect (posBox[0] + 10, posBox[1] + 10, 100, 20), "Maps: " + Scenes[0] + ", "+ Scenes[1] + ", " + Scenes[2]);
+				int count = 0;
+				foreach (string s in Scenes)
+				{
+					if(GUI.Button(new Rect(posBox[0] + 10, posBox[1] + 50 + (count * 50), 150, 30), "Load " + s)) {
+						Application.LoadLevel(s);
+					}
+					count += 1;
+				}
 			}
 			// Singleplayer
 			if (show[0]){

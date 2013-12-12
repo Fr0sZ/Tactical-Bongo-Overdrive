@@ -16,10 +16,15 @@ public class DynamticCamera : MonoBehaviour {
 	{
 		m_playerList = GameObject.FindGameObjectsWithTag("Player");
 	}
-	
+
+	public void OnPlayerDeath(){
+
+	}
+		
 	// Update is called once per frame
 	void Update () 
 	{
+		m_playerList = GameObject.FindGameObjectsWithTag("Player");
 		Vector3 pos = m_playerList[0].transform.position - m_playerList[1].transform.position;
 
 		transform.position = m_playerList[0].transform.position - pos / 2;

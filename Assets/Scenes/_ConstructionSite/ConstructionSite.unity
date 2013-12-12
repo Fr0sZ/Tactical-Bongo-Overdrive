@@ -140,7 +140,9 @@ MonoBehaviour:
   m_bloodParticleSystem: {fileID: 100000, guid: d99714966d68e7c4d823245c1e38ea47,
     type: 2}
   m_deadBody: {fileID: 100000, guid: f826d562885aa8f4eb01978b364392d6, type: 2}
+  m_SpawnArea: {fileID: 2122940666}
   m_damageNumber: {fileID: 100000, guid: 8f28b931614e9d840876b28660479279, type: 2}
+  m_playerPrefab: {fileID: 48377954}
 --- !u!114 &48377958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,14 +180,14 @@ MonoBehaviour:
     Right: 100
     Jump: 32
     Attack: 101
-    Throw: 0
+    Throw: 113
   - Up: 273
     Down: 274
     Left: 276
     Right: 275
     Jump: 107
     Attack: 108
-    Throw: 0
+    Throw: 106
 --- !u!61 &48377960
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -401,6 +403,10 @@ Prefab:
       propertyPath: m_jumpForce
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: 4a8191da79a16c7439477fb8cca4a95d, type: 2}
+      propertyPath: m_SpawnArea
+      value: 
+      objectReference: {fileID: 2122940666}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4a8191da79a16c7439477fb8cca4a95d, type: 2}
   m_RootGameObject: {fileID: 48377954}
@@ -643,6 +649,7 @@ MonoBehaviour:
   FireCooldown: 1
   Ammo: 2
   m_pickUpAudioClip: {fileID: 0}
+  m_fireSound: {fileID: 0}
   Bullet: {fileID: 100000, guid: 8563dbb26200e8a468d46009229516c2, type: 2}
   BulletForce: 2
   BulletOffset: {x: 1.29999995, y: .150000006, z: 1}
@@ -908,7 +915,9 @@ MonoBehaviour:
   m_bloodParticleSystem: {fileID: 100000, guid: d99714966d68e7c4d823245c1e38ea47,
     type: 2}
   m_deadBody: {fileID: 100000, guid: f826d562885aa8f4eb01978b364392d6, type: 2}
+  m_SpawnArea: {fileID: 2122940666}
   m_damageNumber: {fileID: 100000, guid: 8f28b931614e9d840876b28660479279, type: 2}
+  m_playerPrefab: {fileID: 501492527}
 --- !u!114 &501492530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -946,14 +955,14 @@ MonoBehaviour:
     Right: 100
     Jump: 32
     Attack: 101
-    Throw: 0
+    Throw: 113
   - Up: 273
     Down: 274
     Left: 276
     Right: 275
     Jump: 107
     Attack: 108
-    Throw: 0
+    Throw: 106
 --- !u!61 &501492532
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1031,6 +1040,7 @@ GameObject:
   - 92: {fileID: 512526297}
   - 124: {fileID: 512526296}
   - 81: {fileID: 512526295}
+  - 114: {fileID: 512526300}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1099,6 +1109,17 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!114 &512526300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 512526294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d15e2b6b2bc82cf4a8789cb7e93f657b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &623202184
 GameObject:
   m_ObjectHideFlags: 0
@@ -1135,6 +1156,15 @@ MonoBehaviour:
   heightPos: 190
   buttonSpace: 30
   widthSettings: 220
+  MenuSceneName: menu
+  settings:
+  - Fastest
+  - Simple
+  - Fantastic
+  MainCamera: {fileID: 0}
+  fov: 10
+  fovMax: 10
+  fovMin: 0
 --- !u!114 &623202186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1295,6 +1325,10 @@ Prefab:
       propertyPath: m_player
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: 4a8191da79a16c7439477fb8cca4a95d, type: 2}
+      propertyPath: m_SpawnArea
+      value: 
+      objectReference: {fileID: 2122940666}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4a8191da79a16c7439477fb8cca4a95d, type: 2}
   m_RootGameObject: {fileID: 501492527}
@@ -1668,6 +1702,7 @@ MonoBehaviour:
   FireCooldown: .200000003
   Ammo: 20
   m_pickUpAudioClip: {fileID: 0}
+  m_fireSound: {fileID: 8300000, guid: e815181b889024a32828e860b1417f40, type: 3}
   Bullet: {fileID: 100000, guid: 5a390745f0fe71e48b8098b440c79072, type: 2}
   BulletForce: 10
   BulletOffset: {x: .699999988, y: .300000012, z: 1}
@@ -2096,6 +2131,7 @@ MonoBehaviour:
   FireCooldown: 1
   Ammo: 15
   m_pickUpAudioClip: {fileID: 0}
+  m_fireSound: {fileID: 8300000, guid: fc56d1e1f27d94cfe9e275533462e302, type: 3}
   Bullet: {fileID: 100000, guid: aaf104e8f8257144995275c74f3a9431, type: 2}
   BulletForce: 100
   BulletOffset: {x: 1.29999995, y: .150000006, z: 1}
@@ -2695,8 +2731,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FireCooldown: .100000001
-  Ammo: 40
+  Ammo: 80
   m_pickUpAudioClip: {fileID: 0}
+  m_fireSound: {fileID: 8300000, guid: e9f36f7bbdf974b8984aecd7e64ca484, type: 3}
   Bullet: {fileID: 100000, guid: 8a184d46665f764458d43bcdf90bdb15, type: 2}
   BulletForce: 10
   BulletOffset: {x: 1.20000005, y: .270000011, z: 1}
@@ -2944,6 +2981,44 @@ Prefab:
   m_RootGameObject: {fileID: 2045176327}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &2122940666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2122940668}
+  - 61: {fileID: 2122940667}
+  m_Layer: 0
+  m_Name: fall_spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &2122940667
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2122940666}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 1, y: 1}
+  m_Center: {x: 0, y: 0}
+--- !u!4 &2122940668
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2122940666}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.0367910862, y: 14.2789755, z: -5.67504311}
+  m_LocalScale: {x: 30, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1 &2143229050
 GameObject:
   m_ObjectHideFlags: 0
