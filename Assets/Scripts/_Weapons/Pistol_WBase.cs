@@ -10,6 +10,7 @@ public class Pistol_WBase : WBase {
 	public override void Fire(){
 		if (CanFire())
 		{
+			PlayFireSound(); 
 			int dir = 1;
 			if(Mathf.RoundToInt(transform.parent.eulerAngles.y) == 180)
 				dir = -1;
@@ -31,8 +32,9 @@ public class Pistol_WBase : WBase {
 		if (player.GetComponent<Player>().Weapon == null){
 		PlayPickUpSound();
 		
-		Destroy(GetComponent<Rigidbody2D>());
-		Destroy(GetComponent<BoxCollider2D>());
+			Destroy(GetComponent<Rigidbody2D>());
+
+			GetComponent<BoxCollider2D>().enabled = false;
 		
 		transform.parent = player.transform;
 		transform.localPosition = m_WeaponOffset;

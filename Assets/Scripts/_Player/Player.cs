@@ -127,7 +127,16 @@ public class Player : MonoBehaviour {
 
 		if(m_weapon)
 		{
+			int dir = 1;
+			if(Mathf.RoundToInt(transform.eulerAngles.y) == 180)
+				dir = -1;
+
 			m_weapon.transform.parent = null;
+			m_weapon.gameObject.AddComponent<Rigidbody2D>();
+			m_weapon.GetComponent<Rigidbody2D>().fixedAngle = true;
+			m_weapon.gameObject.transform.position = new Vector3(2*dir,0,0)+m_weapon.gameObject.transform.position;
+			m_weapon.GetComponent<BoxCollider2D>().enabled = true;
+			m_weapon.GetComponent<Rigidbody2D>().AddForce (new Vector3(1000*dir,0,0));
 			m_weapon = null;
 
 		}
