@@ -95,11 +95,11 @@ public class Player : MonoBehaviour {
 		GameObject deadBody = Instantiate(m_deadBody, transform.position, Quaternion.identity) as GameObject;
 		deadBody.GetComponent<SpriteRenderer>().color = GetComponent<SpriteRenderer>().color - new Color(0.15f,0.15f,0.15f, 0);
 
-		/*float x = m_SpawnArea.transform.localScale.x;
-		float y = m_SpawnArea.transform.localScale.y;*/
+		float x = m_SpawnArea.transform.localScale.x;
+		float y = m_SpawnArea.transform.localScale.y;
 		float xCord = m_SpawnArea.transform.position.x;
 		float yCord = m_SpawnArea.transform.position.y;
-		GameObject newPlayer = Instantiate(m_playerPrefab, new Vector2(xCord,yCord), Quaternion.identity) as GameObject;
+		GameObject newPlayer = Instantiate(m_playerPrefab, new Vector2(Random.Range(-x/2,x/2)+xCord,yCord), Quaternion.identity) as GameObject;
 			newPlayer.GetComponent<PlayerInputController>().m_player = GetComponent<PlayerInputController>().m_player;
 		newPlayer.GetComponent<Player>().m_SpawnArea = m_SpawnArea;
 		Destroy(gameObject);

@@ -70,6 +70,7 @@ MonoBehaviour:
   FireCooldown: .200000003
   Ammo: 20
   m_pickUpAudioClip: {fileID: 0}
+  m_fireSound: {fileID: 8300000, guid: e815181b889024a32828e860b1417f40, type: 3}
   Bullet: {fileID: 100000, guid: 5a390745f0fe71e48b8098b440c79072, type: 2}
   BulletForce: 10
   BulletOffset: {x: .699999988, y: .300000012, z: 1}
