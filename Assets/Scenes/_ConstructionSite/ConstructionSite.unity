@@ -89,7 +89,7 @@ GameObject:
   - 114: {fileID: 48377958}
   - 114: {fileID: 48377957}
   - 95: {fileID: 48377956}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -483,7 +483,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 195323320}
   - 212: {fileID: 195323321}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -742,7 +742,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 409294831}
   - 212: {fileID: 409294832}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -877,7 +877,7 @@ GameObject:
   - 114: {fileID: 501492530}
   - 114: {fileID: 501492529}
   - 95: {fileID: 501492528}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1442,7 +1442,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 807801192}
   - 212: {fileID: 807801193}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1791,7 +1791,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1160776950}
   - 212: {fileID: 1160776949}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3016,7 +3016,7 @@ Transform:
   m_GameObject: {fileID: 2122940666}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -.0367910862, y: 14.2789755, z: -5.67504311}
-  m_LocalScale: {x: 30, y: 1, z: 1}
+  m_LocalScale: {x: 25.5, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!1 &2143229050

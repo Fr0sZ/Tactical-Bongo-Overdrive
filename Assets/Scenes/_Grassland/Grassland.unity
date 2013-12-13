@@ -386,6 +386,7 @@ GameObject:
   - 114: {fileID: 112446158}
   - 61: {fileID: 112446157}
   - 50: {fileID: 112446156}
+  - 120: {fileID: 112446161}
   m_Layer: 8
   m_Name: Sniper
   m_TagString: Untagged
@@ -476,6 +477,41 @@ Transform:
   m_LocalScale: {x: .699999988, y: .699999988, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!120 &112446161
+LineRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 12000000, guid: 417a20c2d8a18d94ea0d313544035a7c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1256050215}
+  m_GameObject: {fileID: 112446155}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
+  m_Positions:
+  - {x: 2.00999999, y: .209999993, z: 0}
+  - {x: 151.440002, y: 0, z: 1}
+  m_Parameters:
+    startWidth: .0399999991
+    endWidth: .0399999991
+    m_StartColor:
+      serializedVersion: 2
+      rgba: 4278190335
+    m_EndColor:
+      serializedVersion: 2
+      rgba: 4278190335
+  m_UseWorldSpace: 0
 --- !u!1 &114745712
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,7 +903,6 @@ MonoBehaviour:
   m_deadBody: {fileID: 100000, guid: f826d562885aa8f4eb01978b364392d6, type: 2}
   m_SpawnArea: {fileID: 2074403301}
   m_damageNumber: {fileID: 100000, guid: 8f28b931614e9d840876b28660479279, type: 2}
-  m_playerPrefab: {fileID: 225326605}
 --- !u!114 &225326608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1275,7 +1310,6 @@ MonoBehaviour:
   m_deadBody: {fileID: 100000, guid: f826d562885aa8f4eb01978b364392d6, type: 2}
   m_SpawnArea: {fileID: 1003258267}
   m_damageNumber: {fileID: 100000, guid: 8f28b931614e9d840876b28660479279, type: 2}
-  m_playerPrefab: {fileID: 254795525}
 --- !u!114 &254795528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7715,6 +7749,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1940205285}
   - 212: {fileID: 1940205286}
+  - 114: {fileID: 1940205287}
   m_Layer: 0
   m_Name: background
   m_TagString: Untagged
@@ -7767,6 +7802,25 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_Sprite: {fileID: 21300000, guid: 26da19740cde1df49a0e85e5810be73d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &1940205287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1940205284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d992e064fe74cc285068f9d700da0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ObjectsToSpawn:
+  - {fileID: 100000, guid: 3af36ab18f860ea4883697f7624db06b, type: 2}
+  - {fileID: 100000, guid: b7d9fc0797790eb4ab1aab268352f1fc, type: 2}
+  - {fileID: 100000, guid: 417a20c2d8a18d94ea0d313544035a7c, type: 2}
+  - {fileID: 100000, guid: b2978bab050b35740bf2b2f5667a985f, type: 2}
+  - {fileID: 100000, guid: 4a9946a13dc26184ab6a278de583179c, type: 2}
+  - {fileID: 100000, guid: 01ca8c83bb930974981c8431c59b34db, type: 2}
+  m_SpawnArea: {fileID: 2074403301}
 --- !u!1001 &2007114126
 Prefab:
   m_ObjectHideFlags: 0
@@ -8004,7 +8058,7 @@ Transform:
   m_GameObject: {fileID: 2074403301}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 11.4000006, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 70, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1003258271}
 --- !u!65 &2074403303
