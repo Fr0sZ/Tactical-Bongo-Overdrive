@@ -11,10 +11,17 @@ public class menuButtons : MonoBehaviour {
 
 	}
 	
-	string[] Scenes = new string[3] { "Grassland", "ConstructionSite", "PlayerTest" };
+	public string[] Scenes = new string[3] { "Grassland", "ConstructionSite", "PlayerTest" };
 	bool[] show = new bool[3];
 	float buttonSpace = Screen.height / 6;
 	int[] posBox = {120, 20};
+	
+	// Settings
+	public string[] settings = new string[3] { "Fastest", "Simple", "Fantastic" };
+	public float fov = 10;
+	public float fovMax = 10;
+	public float fovMin = 0;
+	
 	void OnGUI ()
 	{
 		if(GUI.Button(new Rect(20,Screen.height - buttonSpace*4 + 10,80,40), "Play")) {
@@ -49,19 +56,51 @@ public class menuButtons : MonoBehaviour {
 					count += 1;
 				}
 			}
+			
 			// Singleplayer
 			if (show[0]){
 				menuName = "Play";
 			}
+			
 			// Multiplayer 
 			if (show[1]){
 				menuName = "Multiplayer";
 			}
+			
 			// Game Settings
+			float heightPos = 10 + posBox[1];
+			float settingSpace = 30;
 			if (show[2]){
-				menuName = "Settings";
+				// Quality Level
+				GUI.Label (new Rect (posBox[0] + 10,heightPos,80,20), "QualityLevel");
+				if(GUI.Button(new Rect(posBox[0] + 10,heightPos + settingSpace,80,20), "Terrible")) {
+					QualitySettings.SetQualityLevel(0);
+				}
+				if(GUI.Button(new Rect(posBox[0] + 10 + 90,heightPos + settingSpace,80,20), "Standard")) {
+					QualitySettings.SetQualityLevel(3);
+				}
+				if(GUI.Button(new Rect(posBox[0] + 10 + 180,heightPos + settingSpace,80,20), "ULTIMATE")) {
+					QualitySettings.SetQualityLevel(6);
+				}
+
+				// FOV Slider
+				GUI.Label (new Rect (posBox[0] + 10,heightPos + settingSpace * 2,80,20), "Horizontal FOV");
+				fov = GUI.HorizontalSlider ( new Rect (posBox[0] + 40,heightPos + settingSpace * 3,190,20), fov, fovMin, fovMax );
+				GUI.Label (new Rect (posBox[0] + 10,heightPos + settingSpace * 3,80,20), (fov*10).ToString());
+
+				// Shader
+				GUI.Label (new Rect (posBox[0] + 10,heightPos + settingSpace * 4,80,20), "Shader");
+				if(GUI.Button(new Rect(posBox[0] + 10,heightPos + settingSpace * 5,80,20), "Normal")) {
+
+				}
+				if(GUI.Button(new Rect(posBox[0] + 10 + 90,heightPos + settingSpace * 5,80,20), "Cartoon")) {
+
+				}
+				if(GUI.Button(new Rect(posBox[0] + 10 + 180,heightPos + settingSpace * 5,80,20), "Old")) {
+
+				}
 			}
-			GUI.Box(new Rect(posBox[0],posBox[1],Screen.width - 140, Screen.height - 40), menuName);
+			GUI.Box(new Rect(posBox[0],posBox[1],Screen.width - (posBox[0] + posBox[1]), Screen.height - (2*posBox[1])), menuName);
 		}
 
 		if(GUI.Button(new Rect(20,Screen.height - buttonSpace*1 + 10,80,40), "Exit")) {
