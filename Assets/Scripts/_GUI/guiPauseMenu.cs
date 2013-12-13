@@ -3,6 +3,7 @@ using System.Collections;
 
 public class guiPauseMenu : MonoBehaviour {
 
+	// Window Options
 	public KeyCode toggleKey = KeyCode.Escape;
 	public float width = 110;
 	public float height = 160;
@@ -12,8 +13,11 @@ public class guiPauseMenu : MonoBehaviour {
 	float widthSettingsC = 0;
 	bool show;
 	bool showSettings;
-	public string MenuSceneName = "menu";
-	public string[] settings = new string[3] { "Fastest", "Simple", "Fantastic" };
+	
+	public string MenuSceneName = "menu"; // Menu scene 
+	public string[] settings = new string[3] { "Fastest", "Simple", "Fantastic" }; // Quality Levels
+	
+	// Fov
 	public Camera MainCamera;
 	public float fov = 10;
 	public float fovMax = 10;
@@ -65,8 +69,7 @@ public class guiPauseMenu : MonoBehaviour {
 			// FOV Slider
 			GUI.Label (new Rect (120,heightPos + 10 + buttonSpace*2,80,20), "Horizontal FOV");
 			fov = GUI.HorizontalSlider ( new Rect (180,heightPos + 10 + buttonSpace*3,190,20), fov, fovMin, fovMax );
-			GUI.Label (new Rect (120,heightPos + 10 + buttonSpace*3,80,20), fov.ToString());
-
+			GUI.Label (new Rect (120,heightPos + 10 + buttonSpace*3,80,20), (fov*10).ToString());
 		}
 
 		// Restart
