@@ -142,7 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_groundSpeed: 8
   m_airSpeed: 7
-  m_jumpForce: 750
+  m_jumpForce: 1000
   m_groundSlowdown: .600000024
   m_airSlowdown: .600000024
 --- !u!114 &11400002
@@ -189,7 +189,6 @@ MonoBehaviour:
   m_deadBody: {fileID: 100000, guid: f826d562885aa8f4eb01978b364392d6, type: 2}
   m_SpawnArea: {fileID: 0}
   m_damageNumber: {fileID: 100000, guid: 8f28b931614e9d840876b28660479279, type: 2}
-  m_playerPrefab: {fileID: 100000}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
