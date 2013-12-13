@@ -21,6 +21,7 @@ public class menuButtons : MonoBehaviour {
 	public float fov = 10;
 	public float fovMax = 10;
 	public float fovMin = 0;
+	public int currentShader = 0;
 	
 	void OnGUI ()
 	{
@@ -91,13 +92,13 @@ public class menuButtons : MonoBehaviour {
 				// Shader
 				GUI.Label (new Rect (posBox[0] + 10,heightPos + settingSpace * 4,80,20), "Shader");
 				if(GUI.Button(new Rect(posBox[0] + 10,heightPos + settingSpace * 5,80,20), "Normal")) {
-
+					currentShader = 0;
 				}
 				if(GUI.Button(new Rect(posBox[0] + 10 + 90,heightPos + settingSpace * 5,80,20), "Cartoon")) {
-
+					currentShader = 1;
 				}
 				if(GUI.Button(new Rect(posBox[0] + 10 + 180,heightPos + settingSpace * 5,80,20), "Old")) {
-
+					currentShader = 2;
 				}
 			}
 			GUI.Box(new Rect(posBox[0],posBox[1],Screen.width - (posBox[0] + posBox[1]), Screen.height - (2*posBox[1])), menuName);
