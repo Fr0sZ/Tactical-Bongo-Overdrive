@@ -2,13 +2,17 @@
 using System.Collections;
 
 public class guiSettings : MonoBehaviour {
-
-	// Use this for initialization
+	
+	/*
+		Used for loading settings from menu...
+	*/
+	
+	// Initialization
 	void Start () {
 	
 	}
 	
-	// Update is called once per frame
+	// Update
 	void Update () {
 	
 	}
