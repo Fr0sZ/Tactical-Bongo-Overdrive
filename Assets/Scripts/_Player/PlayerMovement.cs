@@ -15,11 +15,12 @@ public class PlayerMovement : MonoBehaviour
 	private Vector2 m_currentDir;
 
 	private Vector2 m_velocity = new Vector2(1,0);
-	private bool m_grounded = false;
+	public bool m_grounded = false;
 	
 	private Animator m_animator;
 
 	private float m_lastJumpTimer;
+	private float m_lastTryJump = 0.1f;
 
 	void Start()
 	{
@@ -29,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
 	void Update()
 	{
 		m_lastJumpTimer -= Time.deltaTime;
+		m_lastTryJump -= Time.deltaTime;
 
 		if(m_lastJumpTimer > 0)
 			TryToJump();
@@ -67,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
 
 		rigidbody2D.velocity = new Vector2(m_velocity.x, rigidbody2D.velocity.y);
 
-
+		float hitDistance = 0.2f;
 
 		//Make sure so the player dosen't go through things
 		Vector2 collSize = GetComponent<BoxCollider2D>().size;
@@ -75,13 +77,13 @@ public class PlayerMovement : MonoBehaviour
 		LayerMask layermask = 1 << 8;
 		layermask = ~layermask;
 
-		RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x,transform.position.y)  + Mathf.Sign(rigidbody2D.velocity.x) * new Vector2(collSize.x/2 + 0.01f, 0) , new Vector2(Mathf.Sign(rigidbody2D.velocity.x),0), 0.01f, layermask);
+		RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x,transform.position.y)  + Mathf.Sign(rigidbody2D.velocity.x) * new Vector2(collSize.x/2 + 0.01f, 0) , new Vector2(Mathf.Sign(rigidbody2D.velocity.x),0), hitDistance, layermask);
 	
 		if(!hit)
 		{
 			for(int i = 0; i < CollisionRays; i++)
 			{
-				RaycastHit2D tempHit = Physics2D.Raycast(new Vector2(transform.position.x,transform.position.y)  + Mathf.Sign(rigidbody2D.velocity.x) * new Vector2(collSize.x/2 + 0.01f, -collSize.y/2 + (collSize.y / (CollisionRays-1)) * i) 	, new Vector2(Mathf.Sign(rigidbody2D.velocity.x),0), 0.01f, layermask);
+				RaycastHit2D tempHit = Physics2D.Raycast(new Vector2(transform.position.x,transform.position.y)  + Mathf.Sign(rigidbody2D.velocity.x) * new Vector2(collSize.x/2 + 0.01f, -collSize.y/2 + (collSize.y / (CollisionRays-1)) * i) 	, new Vector2(Mathf.Sign(rigidbody2D.velocity.x),0), hitDistance, layermask);
 				if(tempHit)
 				{
 					hit = tempHit;
@@ -97,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
 				hit.rigidbody.AddForce(rigidbody2D.velocity);
 			}
 
-			float newPos = Mathf.Sign(rigidbody2D.velocity.x) * (collSize.x/2 + 0.01f);
+			float newPos = Mathf.Sign(rigidbody2D.velocity.x) * (collSize.x/2 + hitDistance);
 			rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
 			m_velocity = new Vector2(0, m_velocity.y);
 			transform.position = new Vector2(hit.point.x - newPos, transform.position.y);
@@ -120,17 +122,21 @@ public class PlayerMovement : MonoBehaviour
 			transform.eulerAngles = new Vector3(transform.eulerAngles.x, 180, transform.eulerAngles.z);
 		}
 	}
-	
+
 	public void TryToJump()
 	{		
-		if(m_grounded)
+		if(m_lastTryJump < 0)
 		{
-			m_animator.SetBool("Jump", true);
-			rigidbody2D.AddForce(new Vector2(0, m_jumpForce));
-			m_lastJumpTimer = 0;
+			if(m_grounded)
+			{
+				m_lastTryJump = 0.1f;
+				m_animator.SetBool("Jump", true);
+				rigidbody2D.AddForce(new Vector2(0, m_jumpForce));
+				m_lastJumpTimer = 0;
+			}
+			else if(m_lastJumpTimer < 0)
+				m_lastJumpTimer = ExtraJumpInputTime;
 		}
-		else if(m_lastJumpTimer < 0)
-			m_lastJumpTimer = ExtraJumpInputTime;
 	}
 
 	bool IsGrounded()
