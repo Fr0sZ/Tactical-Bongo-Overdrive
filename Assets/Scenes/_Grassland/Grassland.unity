@@ -7837,8 +7837,8 @@ MonoBehaviour:
   - {fileID: 100000, guid: 4a9946a13dc26184ab6a278de583179c, type: 2}
   - {fileID: 100000, guid: 01ca8c83bb930974981c8431c59b34db, type: 2}
   m_SpawnArea: {fileID: 2074403301}
-  minSpawn: 2
-  maxSpawn: 10
+  minSpawn: 5
+  maxSpawn: 25
 --- !u!1001 &2007114126
 Prefab:
   m_ObjectHideFlags: 0

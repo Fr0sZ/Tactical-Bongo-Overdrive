@@ -95,7 +95,6 @@ public class Player : MonoBehaviour {
 		deadBody.GetComponent<SpriteRenderer>().color = GetComponent<SpriteRenderer>().color - new Color(0.15f,0.15f,0.15f, 0);
 
 		float x = m_SpawnArea.transform.localScale.x;
-		float y = m_SpawnArea.transform.localScale.y;
 		float xCord = m_SpawnArea.transform.position.x;
 		float yCord = m_SpawnArea.transform.position.y;
 		GameObject newPlayer = Instantiate(Resources.Load("Prefabs/Player"), new Vector2(Random.Range(-x/2,x/2)+xCord,yCord), Quaternion.identity) as GameObject;
