@@ -6,7 +6,7 @@ public class BlackHoleBullet : Bullet {
 	const float AliveTime = 3;
 
 	const float Radius = 10;
-	const float Force = -1050;
+	const float Force = -1500;
 	const float ExplodeRadius = 20;
 	const float ExplodeForce = 250;
 	const float ExplodeMaxDamage = 50;
