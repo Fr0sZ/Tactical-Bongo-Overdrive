@@ -6,10 +6,10 @@ public class BlackHoleBullet : Bullet {
 	const float AliveTime = 3;
 
 	const float Radius = 10;
-	const float Force = -250;
+	const float Force = -1050;
 	const float ExplodeRadius = 20;
 	const float ExplodeForce = 250;
-	const float ExplodeMaxDamage = 40;
+	const float ExplodeMaxDamage = 50;
 	const float ExplodeMinDamage= 1;
 
 	public GameObject m_explodeParticleEffect;
