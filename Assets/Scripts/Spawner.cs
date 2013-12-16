@@ -27,7 +27,7 @@ public class Spawner : MonoBehaviour {
 			float x = m_SpawnArea.transform.localScale.x;
 			float xCord = m_SpawnArea.transform.position.x;
 			float yCord = m_SpawnArea.transform.position.y;
-			GameObject newObject = Instantiate(m_ObjectsToSpawn[Random.Range(0,m_ObjectsToSpawn.Count)], new Vector2(Random.Range(-x/2,x/2)+xCord,yCord), Quaternion.identity) as GameObject;
+			Instantiate(m_ObjectsToSpawn[Random.Range(0,m_ObjectsToSpawn.Count)], new Vector2(Random.Range(-x/2,x/2)+xCord,yCord), Quaternion.identity);
 			m_nextSpawn = Random.Range(minSpawn,maxSpawn);
 			Debug.Log (m_nextSpawn);
 		}
