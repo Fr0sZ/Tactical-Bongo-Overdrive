@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
 
 		rigidbody2D.velocity = new Vector2(m_velocity.x, rigidbody2D.velocity.y);
 
-		float hitDistance = 0.2f;
+		float hitDistance = 0.01f;
 
 		//Make sure so the player dosen't go through things
 		Vector2 collSize = GetComponent<BoxCollider2D>().size;
