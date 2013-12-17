@@ -225,7 +225,6 @@ public class AI : MonoBehaviour {
 			}
 		}
 
-		Debug.Log(startX + " " + startY);
 		foreach(Node node in m_groundedNodes)
 		{
 			node.hCost = (int)Vector2.Distance(node.Position, endPos);
@@ -301,10 +300,7 @@ public class AI : MonoBehaviour {
 			m_openList.Remove(currentNode);
 
 			if(currentNode.Position == endPos)
-			{
-				Debug.Log("REAL BREAK");
 				break;
-			}
 		}
 		List<Vector2> path = GetPath(startX,startY, endX, endY);
 		if(path != null)
@@ -312,8 +308,6 @@ public class AI : MonoBehaviour {
 			currentState = 0;
 			m_path =  path;
 		}
-		else
-			Debug.Log("is null");
 	}
 	public List<Vector2> m_path = new List<Vector2>();
 
@@ -338,15 +332,13 @@ public class AI : MonoBehaviour {
 		Node currentNode = m_walkNodes[endPosX, endPosY];
 		
 		List<Vector2> path = new List<Vector2>();
-		Debug.Log(startPosX + " " + startPosY + " " + endPosX + " " + endPosY);
+
 		while(currentNode.Position.x != startPosX || currentNode.Position.y != startPosY)
 		{
-			Debug.Log(currentNode.Position.ToString());
 			path.Add(new Vector2(currentNode.Position.x, currentNode.Position.y)/2 + m_nodeOffset);
 			
 			if(currentNode.parent == null)
 			{
-				Debug.Log("null parent");
 				break;
 			}	
 			currentNode = currentNode.parent;
