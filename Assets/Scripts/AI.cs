@@ -344,7 +344,7 @@ public class AI : MonoBehaviour {
 			currentNode = currentNode.parent;
 		}
 		//path.Add(new Vector2(currentNode.x, currentNode. y) + new Vector2(m_position.x,m_position.z));
-		
+
 		path.Reverse();
 		
 		if(currentNode.Position.x == startPosX && currentNode.Position.y == startPosY)
@@ -368,7 +368,7 @@ public class AI : MonoBehaviour {
 	void Update () 
 	{
 		checkTimer -= Time.deltaTime;
-		if(checkTimer <= 0)
+		if(checkTimer <= 0 && m_playerMovementScript.m_grounded)
 		{
 			//FindPath(ClosetGround(((Vector2)transform.position - m_nodeOffset)*2) , new Vector2(FindPosX,FindPosY));
 			FindPath(ClosetGround(((Vector2)transform.position - m_nodeOffset)*2) , ClosetGround(((Vector2)target.position - m_nodeOffset)*2));
@@ -397,7 +397,7 @@ public class AI : MonoBehaviour {
 			{
 				m_playerMovementScript.TryToJump();
 			
-				if(heightDiff > widthDiff - 1)
+				if(heightDiff > widthDiff*2)
 				{
 					m_playerMovementScript.SetPlayerDir(new Vector2(0,0));
 				}
