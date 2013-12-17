@@ -920,6 +920,7 @@ MonoBehaviour:
   m_jumpForce: 1000
   m_groundSlowdown: .600000024
   m_airSlowdown: .600000024
+  m_grounded: 0
 --- !u!114 &225326609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1327,6 +1328,7 @@ MonoBehaviour:
   m_jumpForce: 1000
   m_groundSlowdown: .600000024
   m_airSlowdown: .600000024
+  m_grounded: 0
 --- !u!114 &254795529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7650,7 +7652,7 @@ MonoBehaviour:
   FireCooldown: 1
   Ammo: 2
   m_pickUpAudioClip: {fileID: 0}
-  m_fireSound: {fileID: 0}
+  m_fireSound: {fileID: 8300000, guid: 2e1b6972a9e871e4fb7287091d7ede72, type: 3}
   Bullet: {fileID: 100000, guid: 8563dbb26200e8a468d46009229516c2, type: 2}
   BulletForce: 2
   BulletOffset: {x: 1.29999995, y: .150000006, z: 1}
