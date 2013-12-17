@@ -50,7 +50,11 @@ public class AI : MonoBehaviour {
 		{
 			for(int j = 0; j < NodeHeight; j++)
 			{
-				if(j-1 > 0 && m_walkNodes[i,j-1].Walkable == false && m_walkNodes[i,j-2].Walkable == false && m_walkNodes[i,j].Walkable == true)
+				if(j-1 > 0 && m_walkNodes[i,j-1].Walkable == false && 
+				   m_walkNodes[i,j-2].Walkable == false && 
+				   m_walkNodes[i,j].Walkable == true &&
+				   m_walkNodes[i-1,j-2].Walkable == false && 
+				   m_walkNodes[i+1,j-2].Walkable == false)
 				{
 					m_walkNodes[i,j].Grounded = true;
 					groundedNodes.Add(m_walkNodes[i,j]);
