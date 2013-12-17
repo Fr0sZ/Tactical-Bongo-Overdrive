@@ -3,8 +3,8 @@ using System.Collections;
 
 public class HarryPotterFace_PBase : PBase {
 
-	const float LightingBoltChance = 0.15f;
-	const float LightingBoltSpeed = 50;
+	const float LightingBoltChance = 0.2f;
+	const float LightingBoltSpeed = 30;
 	private Vector3 HarryFaceOffset = new Vector3(0.42f,0.12f, 0);
 
 	public GameObject m_harryPotterFace;
@@ -26,6 +26,7 @@ public class HarryPotterFace_PBase : PBase {
 
 	public override void OnHit(GameObject shooter, int dmg, Vector2 point, Vector2 dir)
 	{
+
 		if(LightingBoltChance > Random.value)
 		{
 			GameObject lighting = Instantiate(m_lightingBolt, transform.position, Quaternion.identity) as GameObject;
