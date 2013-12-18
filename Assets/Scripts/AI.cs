@@ -401,7 +401,7 @@ public class AI : MonoBehaviour {
 			{
 				m_playerMovementScript.TryToJump();
 			
-				if(heightDiff > widthDiff*2)
+				if(heightDiff > widthDiff*1.5f)
 				{
 					m_playerMovementScript.SetPlayerDir(new Vector2(0,0));
 				}
