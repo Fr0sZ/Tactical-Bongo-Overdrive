@@ -364,6 +364,52 @@ public class AI : MonoBehaviour {
 		return path;
 	}
 
+
+	GameObject FindClosestWeapon()
+	{
+		GameObject[] weapons = GameObject.FindGameObjectsWithTag("Weapon");
+
+
+		GameObject currWeap = null;
+		float currClosest = 99999;
+
+		for(int i = 0;i < weapons.Length; i++)
+		{
+			float dist = Vector2.Distance(transform.position, weapons[i].transform.position);
+			if(dist < currClosest && weapons[i].transform.parent == null && weapons[i].GetComponent<WBase>().Ammo > 0)	//Don't find guns that already is picked up
+			{
+				currClosest = dist;
+				currWeap = weapons[i];
+			}
+		}
+
+		return currWeap;
+	}
+
+	GameObject FindClosestPlayer()
+	{
+		GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+		
+		
+		GameObject currPlayer = null;
+		float currClosest = 99999;
+		
+		for(int i = 0;i < players.Length; i++)
+		{
+			if(players[i] == this.gameObject)
+				continue;
+
+			float dist = Vector2.Distance(transform.position, players[i].transform.position);
+			if(dist < currClosest)	//Don't find guns that already is picked up
+			{
+				currClosest = dist;
+				currPlayer = players[i];
+			}
+		}
+		
+		return currPlayer;
+	}
+
 	private int currentState;
 
 	private float checkTimer = 1;
@@ -374,10 +420,22 @@ public class AI : MonoBehaviour {
 		checkTimer -= Time.deltaTime;
 		if(checkTimer <= 0 && m_playerMovementScript.m_grounded)
 		{
-			//FindPath(ClosetGround(((Vector2)transform.position - m_nodeOffset)*2) , new Vector2(FindPosX,FindPosY));
-			FindPath(ClosetGround(((Vector2)transform.position - m_nodeOffset)*2) , ClosetGround(((Vector2)target.position - m_nodeOffset)*2));
+			if(!m_playerScript.Weapon)
+			{
+				FindPath(ClosetGround(((Vector2)transform.position - m_nodeOffset)*2) , ClosetGround(new Vector2(0,1) + ((Vector2)FindClosestWeapon().transform.position - m_nodeOffset)*2));
+				target = FindClosestWeapon().transform;
+			}
+			else
+			{
+				FindPath(ClosetGround(((Vector2)transform.position - m_nodeOffset)*2) , ClosetGround(((Vector2)FindClosestPlayer().transform.position - m_nodeOffset)*2));
+				target = FindClosestPlayer().transform;
+			}
 			checkTimer = 0.5f;
 		}
+
+
+		if(m_playerScript.Weapon && m_playerScript.Weapon.Ammo <= 0)
+			m_playerScript.Throw();
 
 		if(currentState < m_path.Count && Mathf.Abs(m_path[currentState].x - transform.position.x) < 0.75f && Mathf.Abs(m_path[currentState].y - transform.position.y) < 1 && m_playerMovementScript.m_grounded)
 			currentState++;
