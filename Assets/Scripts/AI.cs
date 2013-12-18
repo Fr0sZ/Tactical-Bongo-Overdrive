@@ -409,6 +409,16 @@ public class AI : MonoBehaviour {
 		}
 		else
 			m_playerMovementScript.SetPlayerDir(new Vector2(0,0));
+
+		Vector2 collSize = GetComponent<BoxCollider2D>().size;
+
+		RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x,transform.position.y)  + Mathf.Sign(rigidbody2D.velocity.x) * new Vector2(collSize.x/2 + 0.01f, 0) , new Vector2(Mathf.Sign(rigidbody2D.velocity.x),0), 200);
+
+		if(hit != null)
+		{
+			if(hit.collider.tag == "Player")
+				m_playerScript.Fire();
+		}
 	}
 		/*
 		m_players = new List<GameObject>(GameObject.FindGameObjectsWithTag("Player"));
