@@ -422,8 +422,12 @@ public class AI : MonoBehaviour {
 		{
 			if(!m_playerScript.Weapon)
 			{
-				FindPath(ClosetGround(((Vector2)transform.position - m_nodeOffset)*2) , ClosetGround(new Vector2(0,1) + ((Vector2)FindClosestWeapon().transform.position - m_nodeOffset)*2));
-				target = FindClosestWeapon().transform;
+				GameObject weapon = FindClosestWeapon();
+				if(weapon != null)
+				{
+					FindPath(ClosetGround(((Vector2)transform.position - m_nodeOffset)*2) , ClosetGround(new Vector2(0,1) + ((Vector2)weapon.transform.position - m_nodeOffset)*2));
+					target = FindClosestWeapon().transform;
+				}
 			}
 			else
 			{
