@@ -22,6 +22,9 @@ public class menuButtons : MonoBehaviour {
 	public float fovMax = 10;
 	public float fovMin = 0;
 	public int currentShader = 0;
+
+	public string players = "1";
+	public int multiplayer = 0;
 	
 	void OnGUI ()
 	{
@@ -52,19 +55,24 @@ public class menuButtons : MonoBehaviour {
 				foreach (string s in Scenes)
 				{
 					if(GUI.Button(new Rect(posBox[0] + 10, posBox[1] + 50 + (count * 50), 150, 30), "Load " + s)) {
+						PlayerPrefs.SetInt("players", int.Parse(players));
+						PlayerPrefs.SetInt("multiplayer", multiplayer);
 						Application.LoadLevel(s);
 					}
 					count += 1;
 				}
+				players = GUI.TextField(new Rect(posBox[0] + 10, posBox[1] + 50 + (count * 50), 150, 30),players); // nr of players
 			}
 			
 			// Singleplayer
 			if (show[0]){
 				menuName = "Play";
+				multiplayer = 0;
 			}
 			
 			// Multiplayer 
 			if (show[1]){
+				multiplayer = 1;
 				menuName = "Multiplayer";
 			}
 			
