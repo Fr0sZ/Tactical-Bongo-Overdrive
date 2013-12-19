@@ -243,6 +243,8 @@ MonoBehaviour:
   fovMax: 10
   fovMin: 0
   currentShader: 0
+  players: 1
+  multiplayer: 0
 --- !u!4 &2134127795
 Transform:
   m_ObjectHideFlags: 0
