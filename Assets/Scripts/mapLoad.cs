@@ -16,7 +16,8 @@ public class mapLoad : MonoBehaviour {
 				float x = m_SpawnArea.transform.localScale.x;
 				float xCord = m_SpawnArea.transform.position.x;
 				float yCord = m_SpawnArea.transform.position.y;
-				Instantiate(Resources.Load("Prefabs/AI"), new Vector2(Random.Range(-x/2,x/2)+xCord,yCord), Quaternion.identity);
+				GameObject player = Instantiate(Resources.Load("Prefabs/AI"), new Vector2(Random.Range(-x/2,x/2)+xCord,yCord), Quaternion.identity) as GameObject;
+				player.GetComponent<Player>().m_SpawnArea = m_SpawnArea;
 			}
 		}
 		else
@@ -27,7 +28,8 @@ public class mapLoad : MonoBehaviour {
 				float x = m_SpawnArea.transform.localScale.x;
 				float xCord = m_SpawnArea.transform.position.x;
 				float yCord = m_SpawnArea.transform.position.y;
-				Instantiate(Resources.Load("Prefabs/AI"), new Vector2(Random.Range(-x/2,x/2)+xCord,yCord), Quaternion.identity);
+				GameObject player = Instantiate(Resources.Load("Prefabs/AI"), new Vector2(Random.Range(-x/2,x/2)+xCord,yCord), Quaternion.identity) as GameObject;
+				player.GetComponent<Player>().m_SpawnArea = m_SpawnArea;
 			}
 		}
 	}
